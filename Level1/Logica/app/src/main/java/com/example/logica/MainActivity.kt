@@ -17,26 +17,30 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViews() {
+        val table = Table(
+            Row(zeroZero.text.toString(), oneZero.text.toString()),
+            Row(zeroOne.text.toString(), oneOne.text.toString()),
+            Row(zeroTwo.text.toString(), oneTwo.text.toString()),
+            Row(zeroThree.text.toString(), oneThree.text.toString())
+        )
+
         btnSubmit.setOnClickListener {
-            if(checkAnswers()) Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_SHORT).show()
+            if (checkAnswers(table))
+                Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_SHORT).show()
             else Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_SHORT).show()
         }
     }
 
-    private fun checkAnswers(): Boolean {
-        val answerOneCorrect =
-            compareLine(answerOne.text.toString(), Line(zeroZero.text.toString(), oneZero.text.toString()))
-        val answerTwoCorrect =
-            compareLine(answerTwo.text.toString(), Line(zeroOne.text.toString(), oneOne.text.toString()))
-        val answerThreeCorrect =
-            compareLine(answerThree.text.toString(), Line(zeroTwo.text.toString(), oneTwo.text.toString()))
-        val answerFourCorrect =
-            compareLine(answerFour.text.toString(), Line(zeroThree.text.toString(), oneThree.text.toString()))
+    private fun checkAnswers(table: Table): Boolean {
+        val answerOneCorrect = compareLine(answerOne.text.toString(), table.rowOne)
+        val answerTwoCorrect = compareLine(answerTwo.text.toString(), table.rowTwo)
+        val answerThreeCorrect = compareLine(answerThree.text.toString(), table.rowThree)
+        val answerFourCorrect = compareLine(answerFour.text.toString(), table.rowFour)
 
         return (answerOneCorrect && answerTwoCorrect && answerThreeCorrect && answerFourCorrect)
     }
 
-    private fun compareLine(answer: String, line: Line): Boolean {
+    private fun compareLine(answer: String, line: Row): Boolean {
         return when (answer) {
             T -> (line.left == T && line.right == T)
             F -> (line.left != line.right || (line.right == F && line.left == F))
@@ -45,5 +49,6 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-private class Line(val left: String, val right: String)
+private class Row(val left: String, val right: String)
 
+private class Table(val rowOne: Row, val rowTwo: Row, val rowThree: Row, val rowFour: Row)
