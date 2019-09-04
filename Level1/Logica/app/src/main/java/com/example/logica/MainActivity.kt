@@ -25,9 +25,8 @@ class MainActivity : AppCompatActivity() {
         )
 
         btnSubmit.setOnClickListener {
-            if (checkAnswers(table))
-                Toast.makeText(this, getString(R.string.correct), Toast.LENGTH_SHORT).show()
-            else Toast.makeText(this, getString(R.string.incorrect), Toast.LENGTH_SHORT).show()
+            if (checkAnswers(table)) showResult(getString(R.string.correct))
+            else showResult(getString(R.string.incorrect))
         }
     }
 
@@ -47,6 +46,8 @@ class MainActivity : AppCompatActivity() {
             else -> false
         }
     }
+
+    private fun showResult(text: String) = Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 }
 
 private class Row(val left: String, val right: String)
