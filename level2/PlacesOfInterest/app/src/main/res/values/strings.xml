@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Places Of Interest</string>
+    <string name="placeholder_image_name">Name of Image</string>
+</resources>
