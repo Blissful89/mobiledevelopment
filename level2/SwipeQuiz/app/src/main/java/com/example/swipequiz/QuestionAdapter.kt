@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class QuestionAdapter(private val questions: Array<Question>) : RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
+class QuestionAdapter(private val questions: Array<Question>, private val clickListener: (Question) -> Unit) :
+    RecyclerView.Adapter<QuestionAdapter.ViewHolder>() {
 
     /**
      * Creates and returns a ViewHolder object, inflating a standard layout called simple_list_item_1.
@@ -28,15 +29,16 @@ class QuestionAdapter(private val questions: Array<Question>) : RecyclerView.Ada
      * Called by RecyclerView to display the data at the specified position.
      */
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(questions[position])
+        holder.bind(questions[position], clickListener)
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private val tvQuestion: TextView = itemView.findViewById(android.R.id.text1)
 
-        fun bind(question: Question) {
+        fun bind(question: Question, clickListener: (Question) -> Unit) {
             tvQuestion.text = question.question
+            tvQuestion.setOnClickListener { clickListener(question) }
         }
 
     }
