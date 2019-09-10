@@ -5,9 +5,6 @@ import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
-private const val T = "T"
-private const val F = "F"
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,16 +37,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun compareLine(answer: String, line: Row): Boolean {
+        val letterT = getString(R.string.T)
+        val letterF = getString(R.string.F)
         return when (answer) {
-            T -> (line.left == T && line.right == T)
-            F -> (line.left != line.right || (line.right == F && line.left == F))
+            letterT -> (line.left == letterT && line.right == letterT)
+            letterF -> (line.left != line.right || (line.right == letterF && line.left == letterF))
             else -> false
         }
     }
 
     private fun showResult(text: String) = Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
 }
-
-private class Row(val left: String, val right: String)
-
-private class Table(val rowOne: Row, val rowTwo: Row, val rowThree: Row, val rowFour: Row)

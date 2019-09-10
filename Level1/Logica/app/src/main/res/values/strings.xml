@@ -7,15 +7,8 @@
     <string name="oneTitle">B</string>
     <string name="answerTitle">A ^ B</string>
 
-    <string name="zeroZero">T</string>
-    <string name="zeroOne">T</string>
-    <string name="zeroTwo">F</string>
-    <string name="zeroThree">F</string>
-
-    <string name="oneZero">T</string>
-    <string name="oneOne">F</string>
-    <string name="oneTwo">T</string>
-    <string name="oneThree">F</string>
+    <string name="T">T</string>
+    <string name="F">F</string>
 
     <string name="correct">Correct</string>
     <string name="incorrect">Incorrect</string>
