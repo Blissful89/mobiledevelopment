@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         initViews()
 
-        fab.setOnClickListener { addReminder(etReminder.text.toString()) }
+        fab.setOnClickListener {  }
     }
 
     private fun initViews() {
@@ -56,18 +56,6 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
-        }
-    }
-
-    // addReminder method
-    private fun addReminder(reminder: String) {
-        if (reminder.isNotBlank()) {
-            reminders.add(Reminder(reminder))
-            reminderAdapter.notifyDataSetChanged()
-            etReminder.text?.clear()
-        } else {
-            Snackbar.make(etReminder, "You must fill in the input field!", Snackbar.LENGTH_SHORT)
-                .show()
         }
     }
 
