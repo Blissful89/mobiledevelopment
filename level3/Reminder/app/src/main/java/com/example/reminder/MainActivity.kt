@@ -1,5 +1,7 @@
 package com.example.reminder
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
+const val ADD_REMINDER_REQUEST_CODE = 1337
+
 class MainActivity : AppCompatActivity() {
 
     private val reminders = arrayListOf<Reminder>()
@@ -25,7 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         initViews()
 
-        fab.setOnClickListener {  }
+        fab.setOnClickListener { startAddActivity() }
     }
 
     private fun initViews() {
@@ -42,6 +46,23 @@ class MainActivity : AppCompatActivity() {
         createItemTouchHelper().attachToRecyclerView(rvReminders)
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                ADD_REMINDER_REQUEST_CODE -> {
+                    val reminder = data!!.getParcelableExtra<Reminder>(EXTRA_REMINDER)
+                    reminders.add(reminder)
+                    reminderAdapter.notifyDataSetChanged()
+                }
+            }
+        }
+    }
+
+
+    private fun startAddActivity() {
+        val intent = Intent(this, AddActivity::class.java)
+        startActivityForResult(intent, ADD_REMINDER_REQUEST_CODE)
+    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

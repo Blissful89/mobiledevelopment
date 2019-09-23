@@ -1,0 +1,14 @@
+Level 3 Questions
+
+1) Which stages of an activity lifecycle exists?
+2) Explore this app: https://github.com/marcellis/demolifecycle (in Java)  and examine which lifecycle events are fired navigating from one activity to the other.
+3) Which are the two kind of intents, and what is the difference?
+4) What is the difference between Parcelables and Serializables?
+5) What is the purpose of the analyzer?
+
+1) onCreate(), onStart(), onResume(), onPause(), onStop(), and onDestroy().
+2) onCreate(), onStart(), onResume()
+3) Explicit and implicit. Explicit directly adresses a target and implicit just "tags" the intent for any other part of the application to pick up
+4) parcable is bad for storage but better for performance compared to serializable
+5) it is your linter
+
