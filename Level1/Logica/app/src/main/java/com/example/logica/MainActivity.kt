@@ -22,8 +22,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         btnSubmit.setOnClickListener {
-            if (checkAnswers(table)) showResult(getString(R.string.correct))
-            else showResult(getString(R.string.incorrect))
+            if (checkAnswers(table)) showResult(getString(R.string.correct)) else showResult(getString(R.string.incorrect))
         }
     }
 
