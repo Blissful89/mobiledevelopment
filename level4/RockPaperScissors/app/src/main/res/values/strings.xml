@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Rock, Paper, Scissors</string>
     <string name="action_history">History</string>
+
+    <string name="welcome">Welcome</string>
+    <string name="instructions">Instructions: select rock, paper or scissors to play.</string>
 </resources>
