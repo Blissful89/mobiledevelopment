@@ -11,7 +11,6 @@ import com.example.rockpaperscissors.model.Game
 import com.example.rockpaperscissors.repository.GameRepository
 
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.content_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
