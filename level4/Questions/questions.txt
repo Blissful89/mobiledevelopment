@@ -1,0 +1,15 @@
+Level 3 Questions
+
+1) A singleton pattern is used in the class that defines the database. What is the purpose of this pattern?
+2) Why should you load the data in a background thread?
+3) What are the three major components of ROOM and what are their responsibilities?
+4) How can you extract the current database so that you can see the table, columns, and data?
+
+
+1) So ensure a second instance of the database is never instantiated
+2) Because it can hold up the main thread otherwise and make your program hold
+3) Database: Contains the database holder and serves as the main access point for the underlying connection to your app’s persisted, relational data.
+   Entity: Represents a table within the database.
+   DAO: Contains the methods used for accessing the database.
+4) By using the Device File Explorer to access the content on the device. Then go to data/data/APP_NAME/database
+
