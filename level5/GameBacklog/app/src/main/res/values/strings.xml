@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Game Backlog</string>
+    <string name="action_settings">Settings</string>
+    <string name="release_date">Release: %1s</string>
+    <string name="delete">Successfully deleted %1$s</string>
+    <string name="backlog">backlog</string>
+    <string name="game">game</string>
+
+
+    <!-- placeholder   -->
+    <string name="ph_game_title">Title</string>
+    <string name="ph_game_platform">Platform</string>
+    <string name="ph_game_release_date">Release Date</string>
+    <string name="ph_game_day">Day</string>
+    <string name="ph_game_month">Month</string>
+    <string name="ph_game_year">Year</string>
+
+    <!-- AddActivity   -->
+    <string name="title_activity_add">AddActivity</string>
+
+    <!-- Menu   -->
+    <string name="delete_icon_title">delete</string>
+</resources>
