@@ -18,5 +18,4 @@ interface NoteDao {
 
     @Update
     suspend fun updateNote(note: Note)
-
 }
