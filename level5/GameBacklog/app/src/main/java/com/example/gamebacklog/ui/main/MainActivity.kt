@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 mainActivityViewModel.deleteGame(games[viewHolder.adapterPosition])
-                showSnackBar(ALL)
+                showSnackBar(SINGLE)
             }
         }
         return ItemTouchHelper(callback)
@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
         return when (item.itemId) {
             R.id.action_delete_all -> {
                 mainActivityViewModel.deleteAllGames()
-                showSnackBar(SINGLE)
+                showSnackBar(ALL)
                 true
             }
             else -> super.onOptionsItemSelected(item)
