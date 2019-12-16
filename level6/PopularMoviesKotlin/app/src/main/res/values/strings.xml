@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Popular Movies Kotlin</string>
+    <string name="movie_list">Movie List</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="search_text">The most popular movies of </string>
+    <string name="submit">Submit</string>
+    <string name="year">Year</string>
+</resources>
