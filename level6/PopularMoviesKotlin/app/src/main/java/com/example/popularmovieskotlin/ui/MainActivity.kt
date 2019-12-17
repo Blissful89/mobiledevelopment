@@ -4,16 +4,42 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.example.popularmovieskotlin.R
+import com.example.popularmovieskotlin.model.Movie
 
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    private val movies = arrayListOf<Movie>()
+    private lateinit var  viewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+//        setSupportActionBar(toolbar)
+
+        initView()
+        initViewModel()
+        viewModel.getMoviesForYear("2001")
+    }
+
+    private fun initView(){
+
+    }
+
+    private fun initViewModel() {
+        viewModel = ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
+        viewModel.movies.observe(this, Observer {
+            movies.clear()
+            movies.addAll(it)
+        })
+
+        viewModel.error.observe(this, Observer {
+            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

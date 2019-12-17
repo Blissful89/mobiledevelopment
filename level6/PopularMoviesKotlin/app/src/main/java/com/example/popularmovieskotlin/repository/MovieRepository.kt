@@ -1,10 +1,11 @@
 package com.example.popularmovieskotlin.repository
 
 
-import com.example.popularmovieskotlin.model.Movie
+import com.example.popularmovieskotlin.api.MovieApiService
+import com.example.popularmovieskotlin.api.MovieApi
 
 class MovieRepository {
-    fun getMoviesFromYear(year: Int): List<Movie> {
-    return ArrayList()
-    }
+    private val movieApi: MovieApiService = MovieApi.createApi()
+
+    fun getMoviesFromYear(year: String) = movieApi.getMoviesFromYear(year)
 }
