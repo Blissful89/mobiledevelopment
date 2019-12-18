@@ -7,4 +7,5 @@
     <string name="search_text">The most popular movies of </string>
     <string name="submit">Submit</string>
     <string name="year">Year</string>
+    <string name="image">image</string>
 </resources>
