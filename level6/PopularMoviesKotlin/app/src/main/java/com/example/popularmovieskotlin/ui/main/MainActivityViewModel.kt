@@ -1,4 +1,4 @@
-package com.example.popularmovieskotlin.ui
+package com.example.popularmovieskotlin.ui.main
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -22,7 +22,7 @@ class MainActivityViewModel(application: Application) : AndroidViewModel(applica
         numbersRepository.getMoviesFromYear(year).enqueue(object : Callback<ApiResponse> {
             override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
                 if (response.isSuccessful) movies.value = response.body()?.movies
-                else error.value = "An error occurred: ${response.errorBody().toString()}"
+                else error.value = response.errorBody().toString()
                 loading.value = false
             }
 

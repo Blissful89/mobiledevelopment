@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:contentDescription="@string/image"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_medium"
+    android:gravity="center"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvNumber"
+        android:layout_width="@dimen/poster_width"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/ivSelectImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/image" />
+        android:layout_width="@dimen/poster_width"
+        android:layout_height="wrap_content" />
 </LinearLayout>

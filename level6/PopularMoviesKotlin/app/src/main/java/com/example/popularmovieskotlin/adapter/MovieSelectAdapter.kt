@@ -33,6 +33,8 @@ class MovieSelectAdapter(private val movies: List<Movie>, private val onClick: (
         }
 
         fun bind(movie: Movie) {
+            val number = (adapterPosition + 1).toString() + "."
+            itemView.tvNumber.text = number
             Glide.with(context).load(movie.getPosterUrl()).into(itemView.ivSelectImage)
         }
     }
