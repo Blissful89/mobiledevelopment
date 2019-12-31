@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">LendaHand</string>
+    <string name="image">Image</string>
+
+    <string name="login">Login</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="wrong_cred">Wrong credentials</string>
 </resources>
