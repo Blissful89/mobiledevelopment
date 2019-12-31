@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">LendaHand</string>
     <string name="image">Image</string>
+    <string name="menu">Menu</string>
 
     <string name="login">Login</string>
     <string name="name">Name</string>
