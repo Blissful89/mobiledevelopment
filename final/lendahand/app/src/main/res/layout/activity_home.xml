@@ -7,34 +7,16 @@
     android:background="@drawable/background_main"
     tools:context=".ui.login.LoginActivity">
 
-    <FrameLayout
-        android:id="@+id/flHomeMenuTop"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/menu_height"
-        android:background="@color/colorWhite"
-        android:elevation="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
-
-        <ImageView
-            android:id="@+id/btnHamburger"
-            android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_small"
-            android:contentDescription="@string/menu"
-            app:srcCompat="@drawable/hamburger" />
-    </FrameLayout>
 
     <ImageView
         android:id="@+id/homeLogo"
         android:layout_width="@dimen/width_big"
         android:layout_height="@dimen/width_big"
-        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="@dimen/margin_medium"
         android:contentDescription="@string/image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flHomeMenuTop"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/lendahand_logo" />
 
 
