@@ -9,7 +9,7 @@
     <color name="colorBlueMedium">#4A84DD</color>
     <color name="colorBlueDark">#344397</color>
     <color name="colorGreenLight">#DCF9C5</color>
-    <color name="white">#FFFFFF</color>
+    <color name="colorWhite">#FFFFFF</color>
 
     <color name="shadowBackground">#7A000000</color>
 </resources>
