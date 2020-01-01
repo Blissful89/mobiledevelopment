@@ -13,5 +13,5 @@ data class Task(
     @SerializedName("image") var image: String,
     @SerializedName("completed") var completed: Boolean
 ) : Parcelable {
-    fun getTaskImage() = "https://image.tmdb.org/t/p/original$image"
+    fun getTaskImage() = "https://picsum.photos$image"
 }
