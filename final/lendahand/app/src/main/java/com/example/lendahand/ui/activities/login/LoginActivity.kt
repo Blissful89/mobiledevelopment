@@ -1,12 +1,11 @@
-package com.example.lendahand.ui.login
+package com.example.lendahand.ui.activities.login
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import com.example.lendahand.R
-import com.example.lendahand.ui.main.MainActivity
+import com.example.lendahand.ui.activities.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 const val NAME = "Peter"

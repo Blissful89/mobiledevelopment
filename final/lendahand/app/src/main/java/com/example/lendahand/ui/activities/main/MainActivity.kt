@@ -1,4 +1,4 @@
-package com.example.lendahand.ui.main
+package com.example.lendahand.ui.activities.main
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,8 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.lendahand.R
-import com.example.lendahand.ui.login.LoginActivity
+import com.example.lendahand.ui.activities.login.LoginActivity
+import com.example.lendahand.ui.fragments.TasksFragment
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -47,7 +48,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_tasks -> {
-                supportFragmentManager.beginTransaction().replace(R.id.fragment_container,TasksFragment()).commit()
+                supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
+                    TasksFragment()
+                ).commit()
                 drawer.closeDrawer(GravityCompat.START)
             }
             R.id.nav_logout -> {

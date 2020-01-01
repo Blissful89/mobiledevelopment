@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lendahand.R
 import com.example.lendahand.model.Task
 
-class GameAdapter(private val tasks: List<Task>) : RecyclerView.Adapter<GameAdapter.ViewHolder>() {
+class TaskAdapter(private val tasks: List<Task>) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
