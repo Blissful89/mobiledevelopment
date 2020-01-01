@@ -3,18 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.main.TasksFragment">
-
-    <ImageView
-        android:id="@+id/homeLogo"
-        android:layout_width="@dimen/width_big"
-        android:layout_height="@dimen/width_big"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginEnd="@dimen/margin_medium"
-        android:contentDescription="@string/image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/lendahand_logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
