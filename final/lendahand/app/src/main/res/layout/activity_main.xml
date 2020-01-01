@@ -38,16 +38,4 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/menu_main" />
 
-    <!--    <ImageView-->
-    <!--        android:id="@+id/homeLogo"-->
-    <!--        android:layout_width="@dimen/width_big"-->
-    <!--        android:layout_height="@dimen/width_big"-->
-    <!--        android:layout_marginTop="8dp"-->
-    <!--        android:layout_marginEnd="@dimen/margin_medium"-->
-    <!--        android:contentDescription="@string/image"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:srcCompat="@drawable/lendahand_logo" />-->
-
-
 </androidx.drawerlayout.widget.DrawerLayout>
