@@ -9,6 +9,8 @@
     <string name="password">Password</string>
     <string name="wrong_cred">Wrong credentials</string>
 
+    <string name="navigation">Navigation</string>
+    <string name="options">Options</string>
     <string name="tasks">Tasks</string>
     <string name="people">People</string>
     <string name="history">History</string>

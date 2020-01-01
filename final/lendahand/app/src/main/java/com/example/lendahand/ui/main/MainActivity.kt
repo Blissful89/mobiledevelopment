@@ -12,6 +12,7 @@ import com.example.lendahand.ui.login.LoginActivity
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 
+const val HOME = "HOME"
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawer: DrawerLayout
@@ -22,7 +23,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setContentView(R.layout.activity_main)
 
         setSupportActionBar(toolbar)
-        supportActionBar?.title = "test"
+        supportActionBar?.title = intent.getStringExtra(HOME)
+
         initViews()
     }
 

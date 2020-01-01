@@ -9,7 +9,7 @@ import com.example.lendahand.R
 import com.example.lendahand.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
-const val NAME = "test"
+const val NAME = "Peter"
 const val PASSWORD = "test"
 
 class LoginActivity : AppCompatActivity() {
@@ -23,7 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initViews() {
         //temp insta swap
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java).putExtra("HOME",NAME))
 
 
         btnLogin.setOnClickListener { fakeLogin() }
@@ -31,7 +31,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun fakeLogin() {
         if (etName.text.toString() == NAME && etPassword.text.toString() == PASSWORD) {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java).putExtra("HOME",NAME))
         } else Toast.makeText(this, R.string.wrong_cred, Toast.LENGTH_SHORT).show()
     }
 }
