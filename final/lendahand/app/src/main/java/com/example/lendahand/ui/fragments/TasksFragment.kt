@@ -18,7 +18,6 @@ import com.example.lendahand.model.Task
 import kotlinx.android.synthetic.main.fragment_tasks.*
 
 class TasksFragment : Fragment() {
-    private val temp = Task("Task 1","12-06-2016", ArrayList(), ArrayList(),"/bestaatniet",false)
     private val tasks = arrayListOf<Task>()
     private val taskAdapter = TaskAdapter(tasks)
     private lateinit var viewModel: TasksFragmentViewModel
@@ -57,7 +56,7 @@ class TasksFragment : Fragment() {
             Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
         })
 
-        viewModel.getTasks()
+        viewModel.sync()
     }
 
     private fun createItemTouchHelper(): ItemTouchHelper {
