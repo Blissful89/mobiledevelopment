@@ -52,7 +52,7 @@ class TasksFragmentViewModel(application: Application) : AndroidViewModel(applic
 
     private fun replaceTasks() {
         ioScope.launch {
-            taskRepository.deleteAllTasks()
+            taskRepository.deleteAllTasksOffline()
             taskRepository.insertAllTasksOffline(tasks.value)
         }
     }

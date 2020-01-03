@@ -23,5 +23,5 @@ class TaskRepository(context: Context) {
 
     suspend fun deleteTaskOffline(task: Task) = taskDao.deleteTask(task)
 
-    suspend fun deleteAllTasks() = taskDao.deleteAllTasks()
+    suspend fun deleteAllTasksOffline() = taskDao.deleteAllTasks()
 }
