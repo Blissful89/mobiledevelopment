@@ -4,8 +4,8 @@ const items = [
     {
         title: "Task 1",
         date: "12-06-2019",
-        descriptions: [],
-        comments: [],
+        descriptions: ["Simple test description"],
+        comments: ["Simple test comment"],
         image: "/200/300",
         completed: false
     },{
