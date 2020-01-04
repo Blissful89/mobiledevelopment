@@ -30,12 +30,13 @@ class AddTaskActivity : AppCompatActivity() {
         btnDatePicker.setOnClickListener { onBtnDatePickerPressed() }
     }
 
-    // Date picker calls back setDate which sets the tvDateFromPicker which is tested upon completion
+    /* Date picker calls back setDate which sets the tvDateFromPicker which is tested upon completion */
     private fun onBtnDatePickerPressed() {
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
+
         val datePicker = DatePickerDialog(
             this,
             DatePickerDialog.OnDateSetListener { _, mYear, mMonth, mDay ->
@@ -47,6 +48,7 @@ class AddTaskActivity : AppCompatActivity() {
             month,
             day
         )
+
         datePicker.show()
     }
 
@@ -61,7 +63,7 @@ class AddTaskActivity : AppCompatActivity() {
         return "$mDay-$mMonth-$year"
     }
 
-
+    /* Checks all input fields for input */
     private fun onUpdatePressed() {
         if (
             etTitle.text.toString().isNotBlank() &&

@@ -74,7 +74,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    companion object {
+    private companion object {
         enum class Mode(val string: String) {
             DESCRIPTIONS("DESCRIPTIONS"),
             COMMENTS("COMMENTS")

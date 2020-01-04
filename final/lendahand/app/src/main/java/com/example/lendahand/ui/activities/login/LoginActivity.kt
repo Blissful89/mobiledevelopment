@@ -20,13 +20,7 @@ class LoginActivity : AppCompatActivity() {
         initViews()
     }
 
-    private fun initViews() {
-        //temp insta swap
-//        startActivity(Intent(this, MainActivity::class.java).putExtra("HOME",NAME))
-
-
-        btnLogin.setOnClickListener { fakeLogin() }
-    }
+    private fun initViews() = btnLogin.setOnClickListener { fakeLogin() }
 
     private fun fakeLogin() {
         if (etName.text.toString() == NAME && etPassword.text.toString() == PASSWORD) {

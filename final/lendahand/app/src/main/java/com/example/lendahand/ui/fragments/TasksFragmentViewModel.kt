@@ -26,31 +26,32 @@ class TasksFragmentViewModel(application: Application) : AndroidViewModel(applic
         getTasksOnline()
     }
 
-    fun insertTask(task: Task){
+    fun insertTask(task: Task) {
         loading.value = true
-        onResponse(taskRepository.insertTaskOnline(task),Mode.NO_POST.string)
+        onResponse(taskRepository.insertTaskOnline(task), Mode.NO_POST.string)
     }
 
     fun deleteTask(task: Task) {
         loading.value = true
-        onResponse(taskRepository.deleteTaskOnline(task),Mode.NO_DELETE.string)
+        onResponse(taskRepository.deleteTaskOnline(task), Mode.NO_DELETE.string)
     }
 
     fun completeTask(task: Task) {
         loading.value = true
         task.completed = true
-        onResponse(taskRepository.updateTaskOnline(task),Mode.NO_UPDATE.string)
+        onResponse(taskRepository.updateTaskOnline(task), Mode.NO_UPDATE.string)
     }
 
     private fun getTasksOnline() {
         loading.value = true
-        onResponse(taskRepository.getTasksOnline(),Mode.OFFLINE.string)
+        onResponse(taskRepository.getTasksOnline(), Mode.OFFLINE.string)
     }
 
-    private fun onResponse(response: Call<ApiResponse>, errorMessage: String){
+    private fun onResponse(response: Call<ApiResponse>, errorMessage: String) {
         response.enqueue(object : Callback<ApiResponse> {
             override fun onResponse(call: Call<ApiResponse>, response: Response<ApiResponse>) {
-                if (response.isSuccessful) tasks.value = filterCompletedTasks(response.body()!!.tasks)
+                if (response.isSuccessful) tasks.value =
+                    filterCompletedTasks(response.body()!!.tasks)
                 else error.value = response.errorBody().toString()
                 loading.value = false
                 replaceTasks()
@@ -62,16 +63,9 @@ class TasksFragmentViewModel(application: Application) : AndroidViewModel(applic
                 getTasksOffline()
             }
         })
-    } companion object {
-        enum class Mode(val string: String){
-            NO_POST("Unable to post task!"),
-            NO_DELETE("Unable to delete task!"),
-            NO_UPDATE("Unable to update task!"),
-            OFFLINE("Working offline!")
-        }
     }
 
-    private fun filterCompletedTasks(tasks: List<Task>) = tasks.filter{ !it.completed }
+    private fun filterCompletedTasks(tasks: List<Task>) = tasks.filter { !it.completed }
 
     private fun getTasksOffline() {
         ioScope.launch { tasks.postValue(taskRepository.getTasksOffline()) }
@@ -81,6 +75,15 @@ class TasksFragmentViewModel(application: Application) : AndroidViewModel(applic
         ioScope.launch {
             taskRepository.deleteAllTasksOffline()
             taskRepository.insertAllTasksOffline(tasks.value)
+        }
+    }
+
+    private companion object {
+        enum class Mode(val string: String) {
+            NO_POST("Unable to post task!"),
+            NO_DELETE("Unable to delete task!"),
+            NO_UPDATE("Unable to update task!"),
+            OFFLINE("Working offline!")
         }
     }
 }
