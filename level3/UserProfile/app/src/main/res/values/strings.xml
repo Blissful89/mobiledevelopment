@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">User Profile</string>
+    <string name="name">%1$s %2$s</string>
+    <string name="image">Image</string>
+    <string name="splash_screen_title">User Profile Kotlin</string>
+
+    <string name="btn_open_gallery">OPEN PICTURE GALLERY</string>
+    <string name="btn_confirm">CONFIRM</string>
+
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="description">Description</string>
+    <string name="profile_title">This is your profile!</string>
+</resources>

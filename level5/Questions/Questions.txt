@@ -1,0 +1,11 @@
+Level 5 Questions
+
+1. What are the parts that Android Architecture Components consist of?
+2. Which design principle is followed by the Android Architecture Components?
+3. What is the purpose of LiveData?
+4. What is the purpose of a ViewModel?
+
+1. LiveData / ViewModel
+2. Observables
+3. To subscribe to the data so everything will update when item changes
+4. To make sure data is kept out of the scope of the view so it is not lost when view is rebuild
