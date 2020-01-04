@@ -2,6 +2,7 @@
   <dictionary name="Marco">
     <words>
       <w>bottomnavigationbar</w>
+      <w>bottomnavigationview</w>
     </words>
   </dictionary>
 </component>
