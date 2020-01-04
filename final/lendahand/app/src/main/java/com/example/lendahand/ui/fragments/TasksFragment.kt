@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lendahand.R
 import com.example.lendahand.adapter.TaskAdapter
 import com.example.lendahand.model.Task
+import com.example.lendahand.ui.activities.detail.DETAIL
 import com.example.lendahand.ui.activities.detail.DetailActivity
 import com.example.lendahand.ui.activities.edit.EditTaskActivity
 import com.example.lendahand.ui.activities.edit.FINISHED_TASK
@@ -93,7 +94,7 @@ class TasksFragment : Fragment() {
 
     private fun onTaskSwipedRight() = Toast.makeText(activity, "Deleted", Toast.LENGTH_SHORT).show()
 
-    private fun onTaskClicked(task: Task) = startActivity(Intent(activity, DetailActivity::class.java).putExtra("DETAIL", task))
+    private fun onTaskClicked(task: Task) = startActivity(Intent(activity, DetailActivity::class.java).putExtra(DETAIL, task))
 
     private fun onFabClicked() {
         startActivityForResult(

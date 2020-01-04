@@ -19,6 +19,7 @@ class EditTaskActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_task)
 
+        ivTaskDetailBack.setOnClickListener { onBackPressed() }
         fabTaskCancel.setOnClickListener { onBackPressed() }
         fabTaskUpdate.setOnClickListener { onUpdatePressed() }
 

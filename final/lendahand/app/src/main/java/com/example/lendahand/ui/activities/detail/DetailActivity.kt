@@ -11,8 +11,9 @@ import com.example.lendahand.model.Task
 import kotlinx.android.synthetic.main.activity_detail.*
 
 const val DETAIL = "DETAIL"
-const val DESCRIPTIONS = "DESCRIPTIONS"
-const val COMMENTS = "COMMENTS"
+
+private const val DESCRIPTIONS = "DESCRIPTIONS"
+private const val COMMENTS = "COMMENTS"
 
 class DetailActivity : AppCompatActivity() {
     private val descriptions = arrayListOf<String>()
