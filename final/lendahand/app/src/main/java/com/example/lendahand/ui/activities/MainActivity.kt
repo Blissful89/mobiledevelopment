@@ -1,4 +1,4 @@
-package com.example.lendahand.ui.activities.main
+package com.example.lendahand.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +9,6 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProviders
 import com.example.lendahand.R
-import com.example.lendahand.ui.activities.login.LoginActivity
 import com.example.lendahand.ui.fragments.TasksFragment
 import com.example.lendahand.ui.viewmodels.TaskViewModel
 import com.google.android.material.navigation.NavigationView

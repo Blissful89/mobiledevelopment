@@ -1,4 +1,4 @@
-package com.example.lendahand.ui.activities.add
+package com.example.lendahand.ui.activities
 
 import android.app.Activity
 import android.app.DatePickerDialog

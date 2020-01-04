@@ -18,10 +18,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.lendahand.R
 import com.example.lendahand.adapter.TaskAdapter
 import com.example.lendahand.model.Task
-import com.example.lendahand.ui.activities.detail.DETAIL
-import com.example.lendahand.ui.activities.detail.DetailActivity
-import com.example.lendahand.ui.activities.add.AddTaskActivity
-import com.example.lendahand.ui.activities.add.CREATED_TASK
+import com.example.lendahand.ui.activities.DETAIL
+import com.example.lendahand.ui.activities.DetailActivity
+import com.example.lendahand.ui.activities.AddTaskActivity
+import com.example.lendahand.ui.activities.CREATED_TASK
 import com.example.lendahand.ui.viewmodels.TaskViewModel
 import kotlinx.android.synthetic.main.fragment_tasks.*
 
@@ -108,7 +108,8 @@ class TasksFragment : Fragment() {
     }
 
     private fun onTaskPressed(task: Task) = startActivityForResult(
-        Intent(activity, DetailActivity::class.java).putExtra(DETAIL, task),
+        Intent(activity, DetailActivity::class.java).putExtra(
+            DETAIL, task),
         COMPLETE_TASK_REQUEST_CODE
     )
 

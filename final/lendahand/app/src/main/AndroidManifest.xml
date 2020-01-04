@@ -12,16 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".ui.activities.detail.DetailActivity"/>
-        <activity android:name=".ui.activities.add.AddTaskActivity"/>
-        <activity android:name="com.example.lendahand.ui.activities.login.LoginActivity">
+        <activity android:name=".ui.activities.DetailActivity"/>
+        <activity android:name=".ui.activities.AddTaskActivity"/>
+        <activity android:name="com.example.lendahand.ui.activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.lendahand.ui.activities.main.MainActivity" />
+        <activity android:name="com.example.lendahand.ui.activities.MainActivity" />
     </application>
 
 </manifest>

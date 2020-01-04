@@ -1,11 +1,10 @@
-package com.example.lendahand.ui.activities.login
+package com.example.lendahand.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.lendahand.R
-import com.example.lendahand.ui.activities.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 const val NAME = "Peter"
@@ -24,7 +23,9 @@ class LoginActivity : AppCompatActivity() {
 
     private fun fakeLogin() {
         if (etName.text.toString() == NAME && etPassword.text.toString() == PASSWORD) {
-            startActivity(Intent(this, MainActivity::class.java).putExtra("HOME", NAME))
+            startActivity(Intent(this, MainActivity::class.java).putExtra("HOME",
+                NAME
+            ))
         } else Toast.makeText(this, R.string.wrong_cred, Toast.LENGTH_SHORT).show()
     }
 }

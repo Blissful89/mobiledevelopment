@@ -1,4 +1,4 @@
-package com.example.lendahand.ui.activities.detail
+package com.example.lendahand.ui.activities
 
 import android.app.Activity
 import android.content.Intent
