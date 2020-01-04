@@ -28,5 +28,5 @@
     <string name="placeholder_comment_1">Comment 1</string>
     <string name="placeholder_comment_2">Comment 2</string>
     <string name="placeholder_comment_3">Comment 3</string>
-    <string name="placeholder_date">dd-mm-yyyy</string>
+    <string name="pick_date">Pick date</string>
 </resources>

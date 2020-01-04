@@ -72,8 +72,10 @@ class DetailActivity : AppCompatActivity() {
                 commentsAdapter.notifyDataSetChanged()
             }
         }
-    } companion object {
-        enum class Mode(val string: String){
+    }
+
+    companion object {
+        enum class Mode(val string: String) {
             DESCRIPTIONS("DESCRIPTIONS"),
             COMMENTS("COMMENTS")
         }

@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun fakeLogin() {
         if (etName.text.toString() == NAME && etPassword.text.toString() == PASSWORD) {
-            startActivity(Intent(this, MainActivity::class.java).putExtra("HOME",NAME))
+            startActivity(Intent(this, MainActivity::class.java).putExtra("HOME", NAME))
         } else Toast.makeText(this, R.string.wrong_cred, Toast.LENGTH_SHORT).show()
     }
 }
