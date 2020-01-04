@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">LendaHand</string>
+    <string name="image">Image</string>
+    <string name="menu">Menu</string>
+
+    <string name="login">Login</string>
+    <string name="logout">Log out</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="wrong_cred">Wrong credentials</string>
+
+    <string name="navigation">Navigation</string>
+    <string name="options">Options</string>
+    <string name="tasks">Tasks</string>
+    <string name="people">People</string>
+    <string name="history">History</string>
+    <string name="faq">FAQ</string>
+    <string name="settings">Settings</string>
+    <string name="comments">Comments</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="placeholder_title">Title</string>
+    <string name="placeholder_description_1">Description 1</string>
+    <string name="placeholder_description_2">Description 2</string>
+    <string name="placeholder_description_3">Description 3</string>
+    <string name="placeholder_comment_1">Comment 1</string>
+    <string name="placeholder_comment_2">Comment 2</string>
+    <string name="placeholder_comment_3">Comment 3</string>
+    <string name="pick_date">Pick date</string>
+</resources>
