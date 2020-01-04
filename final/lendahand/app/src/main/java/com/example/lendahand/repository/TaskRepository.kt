@@ -14,14 +14,16 @@ class TaskRepository(context: Context) {
     /* Api */
     fun getTasksOnline() = taskApi.getTasks()
 
+    fun insertTaskOnline(task: Task) = taskApi.insertTask(task)
+
+    fun deleteTaskOnline(task: Task) = taskApi.deleteTask(task.title)
+
+    fun updateTaskOnline(task: Task) = taskApi.updateTask(task)
+
     /* Room database */
     suspend fun getTasksOffline() = taskDao.getAllTasks()
 
-    suspend fun insertTaskOffline(task: Task) = taskDao.insertTask(task)
-
     suspend fun insertAllTasksOffline(list: List<Task>?) = taskDao.insertAllTasks(list)
-
-    suspend fun deleteTaskOffline(task: Task) = taskDao.deleteTask(task)
 
     suspend fun deleteAllTasksOffline() = taskDao.deleteAllTasks()
 }

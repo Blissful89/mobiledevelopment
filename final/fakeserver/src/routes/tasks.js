@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
 // Delete
 router.delete('/', (req, res) => {
     console.log("DELETE REQUEST RECEIVED")
-    items = items.filter((item) => req.body.title !== item.title)
+    items = items.filter((item) => req.query.title !== item.title)
     res.status(200).send({ results: sortItems(items) })
 })
 

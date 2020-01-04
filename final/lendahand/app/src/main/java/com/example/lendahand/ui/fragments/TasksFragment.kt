@@ -11,23 +11,24 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.lendahand.R
 import com.example.lendahand.adapter.TaskAdapter
 import com.example.lendahand.model.Task
 import com.example.lendahand.ui.activities.detail.DETAIL
 import com.example.lendahand.ui.activities.detail.DetailActivity
-import com.example.lendahand.ui.activities.edit.EditTaskActivity
-import com.example.lendahand.ui.activities.edit.FINISHED_TASK
+import com.example.lendahand.ui.activities.add.AddTaskActivity
+import com.example.lendahand.ui.activities.add.CREATED_TASK
 import kotlinx.android.synthetic.main.fragment_tasks.*
 
 const val EDIT_TASK_REQUEST_CODE = 100
+const val COMPLETE_TASK_REQUEST_CODE = 200
 
 class TasksFragment : Fragment() {
     private val tasks = arrayListOf<Task>()
-    private val taskAdapter = TaskAdapter(tasks) { question: Task -> onTaskClicked(question) }
+    private val taskAdapter = TaskAdapter(tasks) { question: Task -> onTaskPressed(question) }
     private lateinit var viewModel: TasksFragmentViewModel
 
     override fun onCreateView(
@@ -40,10 +41,10 @@ class TasksFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fabNewTask.setOnClickListener { onFabClicked() }
+        fabNewTask.setOnClickListener { onFabPressed() }
 
-        val gridLayoutManager = GridLayoutManager(activity, 1, RecyclerView.VERTICAL, false)
-        rvTasks.layoutManager = gridLayoutManager
+        val linearLayoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
+        rvTasks.layoutManager = linearLayoutManager
         rvTasks.adapter = taskAdapter
         createItemTouchHelper().attachToRecyclerView(rvTasks)
 
@@ -82,42 +83,51 @@ class TasksFragment : Fragment() {
             }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                if (direction == ItemTouchHelper.LEFT) onTaskSwipedLeft()
-                if (direction == ItemTouchHelper.RIGHT) onTaskSwipedRight()
+                val position = viewHolder.adapterPosition
+                val taskToRemove = tasks[position]
+
+                if (direction == ItemTouchHelper.LEFT) onTaskSwiped(taskToRemove, true)
+                if (direction == ItemTouchHelper.RIGHT) onTaskSwiped(taskToRemove, false)
             }
         }
 
         return ItemTouchHelper(callback)
     }
 
-    private fun onTaskSwipedLeft() = Toast.makeText(activity, "Completed", Toast.LENGTH_SHORT).show()
-
-    private fun onTaskSwipedRight() = Toast.makeText(activity, "Deleted", Toast.LENGTH_SHORT).show()
-
-    private fun onTaskClicked(task: Task) = startActivity(Intent(activity, DetailActivity::class.java).putExtra(DETAIL, task))
-
-    private fun onFabClicked() {
-        startActivityForResult(
-            Intent(activity, EditTaskActivity::class.java),
-            EDIT_TASK_REQUEST_CODE
-        )
+    private fun onTaskSwiped(task: Task, completed: Boolean) {
+        if (completed) {
+            Toast.makeText(activity, "Completing ${task.title}", Toast.LENGTH_SHORT).show()
+            viewModel.completeTask(task)
+        } else {
+            Toast.makeText(activity, "Deleting ${task.title}", Toast.LENGTH_SHORT).show()
+            viewModel.deleteTask(task)
+        }
     }
+
+    private fun onTaskPressed(task: Task) = startActivityForResult(
+        Intent(activity, DetailActivity::class.java).putExtra(DETAIL, task),
+        COMPLETE_TASK_REQUEST_CODE
+    )
+
+    private fun onFabPressed() = startActivityForResult(
+        Intent(activity, AddTaskActivity::class.java),
+        EDIT_TASK_REQUEST_CODE
+    )
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             when (requestCode) {
                 EDIT_TASK_REQUEST_CODE -> {
-                    val task = data!!.getParcelableExtra<Task>(FINISHED_TASK)
-                    addTask(task)
+                    val task = data!!.getParcelableExtra<Task>(CREATED_TASK)
+                    if (task != null) viewModel.insertTask(task)
+                }
+                COMPLETE_TASK_REQUEST_CODE -> {
+                    val task = data!!.getParcelableExtra<Task>(DETAIL)
+                    if (task != null) viewModel.completeTask(task)
                 }
             }
         }
     }
-
-    // FIRST STORE THEN RE-RETRIEVE!! TODO
-    private fun addTask(task: Task) {
-        tasks.add(0, task)
-        taskAdapter.notifyDataSetChanged()
-    }
 }
+

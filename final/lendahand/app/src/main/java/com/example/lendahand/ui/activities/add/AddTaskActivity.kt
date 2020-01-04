@@ -1,4 +1,4 @@
-package com.example.lendahand.ui.activities.edit
+package com.example.lendahand.ui.activities.add
 
 import android.app.Activity
 import android.content.Intent
@@ -7,38 +7,24 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.lendahand.R
 import com.example.lendahand.model.Task
-import kotlinx.android.synthetic.main.activity_edit_task.*
+import kotlinx.android.synthetic.main.activity_add_task.*
 
-const val EDIT = "EDIT"
-const val FINISHED_TASK = "FINISHED_TASK"
+const val CREATED_TASK = "CREATED_TASK"
 
-class EditTaskActivity : AppCompatActivity() {
+class AddTaskActivity : AppCompatActivity() {
     private lateinit var task: Task
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_edit_task)
-
-        ivTaskDetailBack.setOnClickListener { onBackPressed() }
-        fabTaskCancel.setOnClickListener { onBackPressed() }
-        fabTaskUpdate.setOnClickListener { onUpdatePressed() }
+        setContentView(R.layout.activity_add_task)
 
         initViews()
     }
 
     private fun initViews() {
-        val task = intent.getParcelableExtra<Task>(EDIT)
-
-        if (task != null) {
-            this.task = task
-            etTitle.setText(task.title)
-            if (task.descriptions.isNotEmpty()) etDescOne.setText(task.descriptions[0])
-            if (task.descriptions.size > 1) etDescTwo.setText(task.descriptions[1])
-            if (task.descriptions.size > 2) etDescThree.setText(task.descriptions[3])
-            if (task.comments.isNotEmpty()) etComOne.setText(task.comments[0])
-            if (task.comments.size > 1) etComTwo.setText(task.comments[1])
-            if (task.comments.size > 2) etComThree.setText(task.comments[3])
-        }
+        ivTaskDetailBack.setOnClickListener { onBackPressed() }
+        fabTaskCancel.setOnClickListener { onBackPressed() }
+        fabTaskUpdate.setOnClickListener { onUpdatePressed() }
     }
 
     private fun onUpdatePressed() {
@@ -66,7 +52,7 @@ class EditTaskActivity : AppCompatActivity() {
 
     private fun complete(task: Task) {
         val resultIntent = Intent()
-        resultIntent.putExtra(FINISHED_TASK, task)
+        resultIntent.putExtra(CREATED_TASK, task)
         setResult(Activity.RESULT_OK, resultIntent)
         finish()
     }

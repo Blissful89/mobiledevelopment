@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initViews() {
         //temp insta swap
-        startActivity(Intent(this, MainActivity::class.java).putExtra("HOME",NAME))
+//        startActivity(Intent(this, MainActivity::class.java).putExtra("HOME",NAME))
 
 
         btnLogin.setOnClickListener { fakeLogin() }

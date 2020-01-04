@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity android:name=".ui.activities.detail.DetailActivity"/>
-        <activity android:name=".ui.activities.edit.EditTaskActivity"/>
+        <activity android:name=".ui.activities.add.AddTaskActivity"/>
         <activity android:name="com.example.lendahand.ui.activities.login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
