@@ -21,6 +21,12 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="placeholder_title">Title</string>
+    <string name="placeholder_description_1">Description 1</string>
+    <string name="placeholder_description_2">Description 2</string>
+    <string name="placeholder_description_3">Description 3</string>
+    <string name="placeholder_comment_1">Comment 1</string>
+    <string name="placeholder_comment_2">Comment 2</string>
+    <string name="placeholder_comment_3">Comment 3</string>
+    <string name="placeholder_date">dd-mm-yyyy</string>
 </resources>

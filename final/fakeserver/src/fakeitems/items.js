@@ -2,59 +2,59 @@
 
 const items = [
     {
-        title: "Task 1",
+        title: "Do Laundry",
         date: "12-06-2019",
-        descriptions: ["Simple test description"],
-        comments: ["Simple test comment"],
+        descriptions: ["There are five shirts", "Please don't overheat"],
+        comments: ["I'll do it tomorrow","Ok Thanks!"],
         image: "/200/300",
         completed: false
     },{
-        title: "Task 2",
+        title: "Wash car",
         date: "12-07-2018",
-        descriptions: [],
+        descriptions: ["Soap is in the garage"],
         comments: [],
         image: "/200/300",
         completed: false
     },{
-        title: "Task 3",
+        title: "Help with showering",
         date: "12-08-2017",
         descriptions: [],
-        comments: [],
+        comments: ["Can you bring me some shampoo?","Sure!"],
         image: "/200/300",
         completed: false
     },{
-        title: "Task 4",
+        title: "Lunch at gizelda",
         date: "12-09-2016",
-        descriptions: [],
+        descriptions: ["Prepair lunch"],
         comments: [],
         image: "/200/300",
         completed: false
     },{
-        title: "Task 5",
+        title: "Read to little Melissa",
         date: "12-10-2015",
         descriptions: [],
-        comments: [],
+        comments: ["Thanks for helping out!"],
         image: "/200/300",
         completed: false
     },{
-        title: "Task 6",
+        title: "Swap car wheel",
         date: "05-05-2015",
         descriptions: [],
         comments: [],
         image: "/200/300",
         completed: false
     },{
-        title: "Task 7",
+        title: "Gardenning",
         date: "04-03-2015",
-        descriptions: [],
+        descriptions: ["The flowers need attention"],
         comments: [],
         image: "/200/300",
         completed: false
     },{
-        title: "Task 8",
+        title: "Playstation with Michael",
         date: "11-01-2014",
-        descriptions: [],
-        comments: [],
+        descriptions: ["Keep poor sick Michael occupied"],
+        comments: ["He didn't feel great last sunday","But he is looking forward to you coming by"],
         image: "/200/300",
         completed: false
     }

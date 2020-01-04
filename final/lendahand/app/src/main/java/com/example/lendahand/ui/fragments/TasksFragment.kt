@@ -1,5 +1,6 @@
 package com.example.lendahand.ui.fragments
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -17,7 +18,11 @@ import com.example.lendahand.R
 import com.example.lendahand.adapter.TaskAdapter
 import com.example.lendahand.model.Task
 import com.example.lendahand.ui.activities.detail.DetailActivity
+import com.example.lendahand.ui.activities.edit.EditTaskActivity
+import com.example.lendahand.ui.activities.edit.FINISHED_TASK
 import kotlinx.android.synthetic.main.fragment_tasks.*
+
+const val EDIT_TASK_REQUEST_CODE = 100
 
 class TasksFragment : Fragment() {
     private val tasks = arrayListOf<Task>()
@@ -33,6 +38,8 @@ class TasksFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        fabNewTask.setOnClickListener { onFabClicked() }
 
         val gridLayoutManager = GridLayoutManager(activity, 1, RecyclerView.VERTICAL, false)
         rvTasks.layoutManager = gridLayoutManager
@@ -82,19 +89,34 @@ class TasksFragment : Fragment() {
         return ItemTouchHelper(callback)
     }
 
-    private fun onTaskSwipedLeft() {
-        Toast.makeText(activity, "Completed", Toast.LENGTH_SHORT).show()
+    private fun onTaskSwipedLeft() = Toast.makeText(activity, "Completed", Toast.LENGTH_SHORT).show()
+
+    private fun onTaskSwipedRight() = Toast.makeText(activity, "Deleted", Toast.LENGTH_SHORT).show()
+
+    private fun onTaskClicked(task: Task) = startActivity(Intent(activity, DetailActivity::class.java).putExtra("DETAIL", task))
+
+    private fun onFabClicked() {
+        startActivityForResult(
+            Intent(activity, EditTaskActivity::class.java),
+            EDIT_TASK_REQUEST_CODE
+        )
     }
 
-    private fun onTaskSwipedRight() {
-        Toast.makeText(activity, "Deleted", Toast.LENGTH_SHORT).show()
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                EDIT_TASK_REQUEST_CODE -> {
+                    val task = data!!.getParcelableExtra<Task>(FINISHED_TASK)
+                    addTask(task)
+                }
+            }
+        }
     }
 
-    private fun onTaskClicked(task: Task) {
-        startActivity(Intent(activity, DetailActivity::class.java).putExtra("OVERVIEW", task))
-    }
-
-    private fun removeTask() {
-        //TODO
+    // FIRST STORE THEN RE-RETRIEVE!! TODO
+    private fun addTask(task: Task) {
+        tasks.add(0, task)
+        taskAdapter.notifyDataSetChanged()
     }
 }

@@ -28,12 +28,14 @@
 
         <TextView
             android:id="@+id/tvTaskDetailTitle"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_medium"
             android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="16dp"
             android:textColor="@android:color/black"
             android:textSize="24sp"
+            app:layout_constraintEnd_toStartOf="@+id/ivTaskDetailImage"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivTaskDetailBack" />
 
@@ -65,6 +67,7 @@
             android:id="@+id/constraintLayout"
             android:layout_width="0dp"
             android:layout_height="200dp"
+            android:layout_marginTop="@dimen/margin_medium"
             android:background="@color/colorBlueLight"
             android:padding="@dimen/margin_small"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +98,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabTaskComplete"
+            android:id="@+id/fabTaskCreate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
@@ -120,13 +123,12 @@
             android:tint="@android:color/white"
             app:borderWidth="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/fabTaskComplete"
+            app:layout_constraintEnd_toStartOf="@+id/fabTaskCreate"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-            app:layout_constraintVertical_bias="0.503" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabTaskDelete"
+            android:id="@+id/fabTaskCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
@@ -136,9 +138,8 @@
             app:borderWidth="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/fabTaskComplete"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-            app:layout_constraintVertical_bias="0.503" />
+            app:layout_constraintStart_toEndOf="@+id/fabTaskCreate"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
