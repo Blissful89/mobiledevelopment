@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
@@ -21,6 +22,7 @@ import com.example.lendahand.ui.activities.detail.DETAIL
 import com.example.lendahand.ui.activities.detail.DetailActivity
 import com.example.lendahand.ui.activities.add.AddTaskActivity
 import com.example.lendahand.ui.activities.add.CREATED_TASK
+import com.example.lendahand.ui.viewmodels.TaskViewModel
 import kotlinx.android.synthetic.main.fragment_tasks.*
 
 const val EDIT_TASK_REQUEST_CODE = 100
@@ -29,7 +31,7 @@ const val COMPLETE_TASK_REQUEST_CODE = 200
 class TasksFragment : Fragment() {
     private val tasks = arrayListOf<Task>()
     private val taskAdapter = TaskAdapter(tasks) { question: Task -> onTaskPressed(question) }
-    private lateinit var viewModel: TasksFragmentViewModel
+    private lateinit var viewModel: TaskViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -49,10 +51,11 @@ class TasksFragment : Fragment() {
         createItemTouchHelper().attachToRecyclerView(rvTasks)
 
         initViewModel()
+        initView()
     }
 
     private fun initViewModel() {
-        viewModel = ViewModelProviders.of(this).get(TasksFragmentViewModel::class.java)
+        viewModel = ViewModelProviders.of(activity as AppCompatActivity).get(TaskViewModel::class.java)
         viewModel.tasks.observe(this, Observer {
             tasks.clear()
             tasks.addAll(it)
@@ -66,9 +69,9 @@ class TasksFragment : Fragment() {
         viewModel.error.observe(this, Observer {
             Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
         })
-
-        viewModel.sync()
     }
+
+    private fun initView() = viewModel.sync()
 
     private fun createItemTouchHelper(): ItemTouchHelper {
         val callback = object :
