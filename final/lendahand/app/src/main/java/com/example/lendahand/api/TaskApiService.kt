@@ -1,6 +1,7 @@
 package com.example.lendahand.api
 
 import com.example.lendahand.model.ApiResponse
+import com.example.lendahand.model.AuthResponse
 import com.example.lendahand.model.Task
 import retrofit2.Call
 import retrofit2.http.*
@@ -17,4 +18,7 @@ interface TaskApiService {
 
     @POST("api/tasks")
     fun updateTask(@Body task: Task): Call<ApiResponse>
+
+    @GET("api/auth")
+    fun login(@Query("name") name: String, @Query("password") password: String): Call<AuthResponse>
 }
