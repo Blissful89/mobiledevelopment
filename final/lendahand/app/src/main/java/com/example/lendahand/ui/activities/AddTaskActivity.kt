@@ -60,7 +60,7 @@ class AddTaskActivity : AppCompatActivity() {
         val mDay = if (day < 10) "0$day" else "$day"
         val mMonth = if (month < 10) "0${month + 1}" else "${month + 1}"
 
-        return "$mDay-$mMonth-$year"
+        return "$mDay/$mMonth/$year"
     }
 
     /* Checks all input fields for input */

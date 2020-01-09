@@ -5,7 +5,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val TEMP_IP = "172.17.79.81"
+const val TEMP_IP = "172.18.14.129"
 
 class TaskApi {
     companion object {
